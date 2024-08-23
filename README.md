@@ -6,7 +6,7 @@
 
     ```sh
     cd
-    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
+    git clone https://github.com/PX4/PX4-Autopilot.git --branch v1.14.3
     bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
     cd PX4-Autopilot/
     make px4_sitl
