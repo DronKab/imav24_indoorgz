@@ -4,45 +4,14 @@
     <include merge='true'>
       <uri>x500</uri>
     </include>
-    
-    <!-- Agregamos la nueva cámara -->
-    <link name="camera_link">
-      <pose>0 0 0 0 0 0</pose>
-      <inertial>
-        <mass>0.0</mass>
-        <inertia>
-          <ixx>0.0</ixx>
-          <ixy>0.0</ixy>
-          <ixz>0.0</ixz>
-          <iyy>0.0</iyy>
-          <iyz>0.0</iyz>
-          <izz>0.0</izz>
-        </inertia>
-      </inertial>
-      <sensor name="imager" type="camera">
-        <pose>0 0 0 0 0 0</pose>
-        <camera>
-          <horizontal_fov>1.74</horizontal_fov>
-          <image>
-            <width>600</width>
-            <height>400</height>
-          </image>
-          <clip>
-            <near>0.1</near>
-            <far>3000</far>
-          </clip>
-        </camera>
-        <always_on>1</always_on>
-        <update_rate>15</update_rate>
-        <visualize>false</visualize>
-        <topic>camera</topic>
-      </sensor>
-    </link>
-
+    <include merge='true'>
+      <uri>OakD-Lite</uri>
+      <pose relative_to="base_link">.10 .03 .222 0 0 0</pose>
+    </include>
     <joint name="CameraJoint" type="fixed">
       <parent>base_link</parent>
-      <child>camera_link</child>
-      <pose relative_to="base_link">0 0 0 0 0 0</pose>
+      <child>OakD-Lite/base_link</child>
+      <pose relative_to="base_link">.10 .03 .222 0 0 0</pose>
     </joint>
   </model>
-</sdf>
+</sdf> 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sdf version='1.9'>
   <model name='x500'>
-    <pose>0 0 .24 0 0 0</pose>
+    <pose>1 1 .24 0 0 0</pose>
     <self_collide>false</self_collide>
     <static>false</static>
     <link name="base_link">
@@ -520,6 +520,47 @@
         </dynamics>
       </axis>
     </joint>
+
+    <!-- Agregamos la nueva cámara -->
+    <link name="pi_camera_link">
+      <pose relative_to="base_link">0 0 0 0 1.57079 0</pose>
+      <inertial>
+        <mass>0.001</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <sensor name="pi_camera" type="camera">
+        <pose>0 0 0 0 0 0</pose>
+        <camera>
+          <horizontal_fov>1.74</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>3000</far>
+          </clip>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>15</update_rate>
+        <visualize>false</visualize>
+        <topic>pi_camera</topic>
+      </sensor>
+    </link>
+    
+    <joint name="PiCameraJoint" type="fixed">
+      <parent>base_link</parent>
+      <child>pi_camera_link</child>
+    </joint>
+    <!-- Agregamos la nueva cámara -->
+
    <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
       <jointName>rotor_0_joint</jointName>
       <linkName>rotor_0</linkName>
