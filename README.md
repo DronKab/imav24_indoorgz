@@ -1,4 +1,4 @@
-# imav24_indoorgz
+# imav24_sim
 
 ## Pre-requisites
 
