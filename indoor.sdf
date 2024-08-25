@@ -114,9 +114,8 @@
             </plane>
           </geometry>
           <material>
-            <ambient>0.8 0.8 0.8 1</ambient>
-            <diffuse>0.8 0.8 0.8 1</diffuse>
-            <specular>0.8 0.8 0.8 1</specular>
+            <ambient>0.2 0.2 0.2 1</ambient>
+            <diffuse>0.2 0.2 0.2 1</diffuse>
           </material>
         </visual>
         <pose>0 0 0 0 -0 0</pose>
@@ -141,10 +140,10 @@
     
     
     <light name='sunUTC' type='directional'>
-      <pose>0 0 500 0 -0 0</pose>
+      <pose>0 0 500 0 0 0</pose> <!-- Posición de la luz, la orientación no es relevante para luz direccional -->
       <cast_shadows>true</cast_shadows>
       <intensity>1</intensity>
-      <direction>0.001 0.625 -0.78</direction>
+      <direction>0 0 -1</direction> <!-- Dirección completamente vertical hacia abajo -->
       <diffuse>0.904 0.904 0.904 1</diffuse>
       <specular>0.271 0.271 0.271 1</specular>
       <attenuation>
@@ -153,12 +152,40 @@
         <constant>1</constant>
         <quadratic>0</quadratic>
       </attenuation>
-      <spot>
-        <inner_angle>0</inner_angle>
-        <outer_angle>0</outer_angle>
-        <falloff>0</falloff>
-      </spot>
     </light>
+
+    <light name='directional_light1' type='directional'>
+      <pose>500 0 500 0 0 0</pose> 
+      <direction>-1 0 -1</direction>
+      <intensity>0.5</intensity>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.5 0.5 0.5 1</specular>
+    </light>
+    
+    <light name='directional_light2' type='directional'>
+      <pose>0 500 500 0 0 0</pose> 
+      <direction>0 -1 -1</direction>
+      <intensity>0.5</intensity>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.5 0.5 0.5 1</specular>
+    </light>
+
+    <light name='directional_light3' type='directional'>
+      <pose>-500 0 500 0 0 0</pose> 
+      <direction>-1 0 -1</direction>
+      <intensity>0.5</intensity>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.5 0.5 0.5 1</specular>
+    </light>
+    
+    <light name='directional_light4' type='directional'>
+      <pose>0 -500 500 0 0 0</pose> 
+      <direction>0 -1 -1</direction>
+      <intensity>0.5</intensity>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.5 0.5 0.5 1</specular>
+    </light>
+
 
 
     <model name='aruco100'>
@@ -173,11 +200,9 @@
           </plane>
         </geometry>
         <material>
-          <diffuse>1 1 1 1</diffuse>
-          <specular>0.4 0.4 0.4 1</specular>
           <pbr>
             <metal>
-              <albedo_map>model://images/5x5_1000-100.png</albedo_map>
+              <emissive_map>model://images/5x5_1000-100.png</emissive_map>
             </metal>
           </pbr>
         </material>
@@ -198,11 +223,9 @@
           </plane>
         </geometry>
         <material>
-          <diffuse>1 1 1 1</diffuse>
-          <specular>0.4 0.4 0.4 1</specular>
           <pbr>
             <metal>
-              <albedo_map>model://images/5x5_1000-105.png</albedo_map>
+              <emissive_map>model://images/5x5_1000-105.png</emissive_map>
             </metal>
           </pbr>
         </material>
@@ -222,11 +245,9 @@
           </plane>
         </geometry>
         <material>
-          <diffuse>1 1 1 1</diffuse>
-          <specular>0.4 0.4 0.4 1</specular>
           <pbr>
             <metal>
-              <albedo_map>model://images/5x5_1000-200.png</albedo_map>
+              <emissive_map>model://images/5x5_1000-200.png</emissive_map>
             </metal>
           </pbr>
         </material>
@@ -246,11 +267,9 @@
           </plane>
         </geometry>
         <material>
-          <diffuse>1 1 1 1</diffuse>
-          <specular>0.4 0.4 0.4 1</specular>
           <pbr>
             <metal>
-              <albedo_map>model://images/5x5_1000-205.png</albedo_map>
+              <emissive_map>model://images/5x5_1000-205.png</emissive_map>
             </metal>
           </pbr>
         </material>
@@ -261,7 +280,7 @@
 
   <model name='aruco400'>
     <static>true</static>
-    <pose> 9 3 0.01 0 0 0 </pose>
+    <pose> 9 4 0.01 0 0 0 </pose>
     <link name='base_aruco400'>
       <visual name='visual'>
         <geometry>
@@ -271,11 +290,9 @@
           </plane>
         </geometry>
         <material>
-          <diffuse>1 1 1 1</diffuse>
-          <specular>0.4 0.4 0.4 1</specular>
           <pbr>
             <metal>
-              <albedo_map>model://images/5x5_1000-400.png</albedo_map>
+              <emissive_map>model://images/5x5_1000-400.png</emissive_map>
             </metal>
           </pbr>
         </material>
@@ -286,7 +303,7 @@
 
   <model name='aruco405'>
     <static>true</static>
-    <pose> 9 2 0.01 0 0 0 </pose>
+    <pose> 9 2.1 0.05 0 0 0 </pose>
     <link name='base_aruco405'>
       <visual name='visual'>
         <geometry>
@@ -296,16 +313,62 @@
           </plane>
         </geometry>
         <material>
-          <diffuse>1 1 1 1</diffuse>
-          <specular>0.4 0.4 0.4 1</specular>
           <pbr>
             <metal>
-              <albedo_map>model://images/5x5_1000-405.png</albedo_map>
+              <emissive_map>model://images/5x5_1000-405.png</emissive_map>
             </metal>
           </pbr>
         </material>
       </visual>
     </link>
+  </model>
+
+
+  <model name="red_line">
+    <static>true</static>
+
+    <link name="left_edge">
+      <pose>3 2 0.005 0 0 1.57079</pose> 
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>2 0.019 0.001</size> 
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 0 0 1</diffuse> 
+        </material>
+      </visual>
+    </link>
+
+    <link name="top_edge">
+      <pose>5 3 0.005 0 0 0</pose> 
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>4 0.019 0.001</size> 
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 0 0 1</diffuse> 
+        </material>
+      </visual>
+    </link>
+
+    <link name="right_edge">
+      <pose>7 2 0.005 0 0 1.57079</pose> 
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>2 0.019 0.001</size> 
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 0 0 1</diffuse> 
+        </material>
+      </visual>
+    </link>
+
   </model>
 
 
@@ -428,11 +491,9 @@
           </plane>
         </geometry>
         <material>
-          <diffuse>1 1 1 1</diffuse>
-          <specular>0.4 0.4 0.4 1</specular>
           <pbr>
             <metal>
-              <albedo_map>model://images/5x5_1000-300.png</albedo_map>
+              <emissive_map>model://images/5x5_1000-300.png</emissive_map>
             </metal>
           </pbr>
         </material>
@@ -500,11 +561,9 @@
           </plane>
         </geometry>
         <material>
-          <diffuse>1 1 1 1</diffuse>
-          <specular>0.4 0.4 0.4 1</specular>
           <pbr>
             <metal>
-              <albedo_map>model://images/5x5_1000-301.png</albedo_map>
+              <emissive_map>model://images/5x5_1000-301.png</emissive_map>
             </metal>
           </pbr>
         </material>
@@ -573,11 +632,9 @@
           </plane>
         </geometry>
         <material>
-          <diffuse>1 1 1 1</diffuse>
-          <specular>0.4 0.4 0.4 1</specular>
           <pbr>
             <metal>
-              <albedo_map>model://images/5x5_1000-302.png</albedo_map>
+              <emissive_map>model://images/5x5_1000-302.png</emissive_map>
             </metal>
           </pbr>
         </material>
@@ -595,7 +652,7 @@
       <visual name="100cm_up_bar">
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
+            <radius>0.025</radius>
             <length>1.5</length>
           </cylinder>
         </geometry>
@@ -606,7 +663,7 @@
       <collision name="100cm_up_bar_hitbox">
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
+            <radius>0.025</radius>
             <length>1.5</length>
           </cylinder>
         </geometry>
@@ -619,7 +676,7 @@
       <visual name="50cm_up_bar">
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
+            <radius>0.025</radius>
             <length>1.5</length>
           </cylinder>
         </geometry>
@@ -630,7 +687,7 @@
       <collision name="50cm_up_bar_hitbox">
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
+            <radius>0.025</radius>
             <length>1.5</length>
           </cylinder>
         </geometry>
@@ -642,7 +699,7 @@
       <visual name="25cm_up_bar">
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
+            <radius>0.025</radius>
             <length>1.5</length>
           </cylinder>
         </geometry>
@@ -653,7 +710,7 @@
       <collision name="25cm_up_bar_hitbox">
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
+            <radius>0.025</radius>
             <length>1.5</length>
           </cylinder>
         </geometry>
@@ -665,7 +722,7 @@
       <visual name="25cm_up_bar">
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
+            <radius>0.025</radius>
             <length>1.5</length>
           </cylinder>
         </geometry>
@@ -676,7 +733,7 @@
       <collision name="25cm_up_bar_hitbox">
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
+            <radius>0.025</radius>
             <length>1.5</length>
           </cylinder>
         </geometry>
@@ -688,7 +745,7 @@
       <visual name="right_bar">
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
+            <radius>0.025</radius>
             <length>2.275</length>
           </cylinder>
         </geometry>
@@ -699,7 +756,7 @@
       <collision name="right_bar_hitbox">
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
+            <radius>0.025</radius>
             <length>2.25</length>
           </cylinder>
         </geometry>
@@ -711,7 +768,7 @@
       <visual name="left_bar">
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
+            <radius>0.025</radius>
             <length>2.275</length>
           </cylinder>
         </geometry>
@@ -722,7 +779,7 @@
       <collision name="left_bar_hitbox">
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
+            <radius>0.025</radius>
             <length>2.25</length>
           </cylinder>
         </geometry>
@@ -731,30 +788,173 @@
 
   </model>
 
-
   <model name="cone">
-    <pose>9 2.6 0.05 0 0 0</pose>
-    <link name="base">
-      <visual name="cone_visual">
+    <pose>9 3.6 0.01 0 0 0</pose>
+    <static>true</static>
+    <link name="body">
+      <visual name="visual">
         <geometry>
-          <cylinder>
-            <radius>0.04</radius>
-            <length>0.08</length>
-          </cylinder>
+          <mesh>
+            <uri>stls/Block_50g.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
         </geometry>
         <material>
           <diffuse>1 1 0 1</diffuse>
         </material>
       </visual>
-      <collision name="cone_hitbox">
+    </link>
+  </model>
+
+  <model name="container">
+    <pose>9 2.1 0.01 1.57079 0 0</pose>
+    <static>true</static>
+    <link name="body">
+      <visual name="visual">
         <geometry>
-          <cylinder>
-            <radius>0.04</radius>
-            <length>0.08</length>
-          </cylinder>
+          <mesh>
+            <uri>stls/container10L.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.2 0.2 0.2 0.98</diffuse>
+        </material>
+      </visual>
+    </link>
+  </model>
+
+  <model name='tv'>
+    <static>1</static>
+    <pose>0 7 1.5 0 0 0</pose>
+
+    <link name="tv_link">
+      <visual name="tv_visual">
+        <geometry>
+          <box>
+            <size>0.05 0.80 0.50</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 0 0 1</diffuse>
+        </material>
+      </visual>
+      <collision name="tv_hitbox">
+        <geometry>
+          <box>
+            <size>0.05 0.80 0.50</size>
+          </box>
         </geometry>
       </collision>
     </link>
+
+    <link name="image_link">
+      <pose relative_to="tv_link">0.021 0 0 0 0 0</pose>
+      <visual name="tv_visual">
+        <geometry>
+          <box>
+            <size>0.01 0.70 0.40</size>
+          </box>
+        </geometry>
+        <material>
+          <pbr>
+            <metal>
+              <emissive_map>model://images/abeja.jpeg</emissive_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+  </model>
+
+
+  <model name="ventana_acrilico">
+    <static>true</static>
+
+    <link name="base">
+      <pose> 5 3 -0.5 0 0 0</pose> <!-- Cambiar aqui la altura de la ventana (restar 1m a la altura deseada)-->
+      <visual name="base_visual">
+        <geometry>
+          <box>
+            <size>0.05 1.80 2</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.9 0.9 0.9 0.2</diffuse>
+        </material>
+      </visual>
+      <collision name="base_hitbox">
+        <geometry>
+          <box>
+            <size>0.05 1.80 2</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="top">
+      <pose relative_to="base">0 0 2.2 0 0 0</pose>
+      <visual name="top_visual">
+        <geometry>
+          <box>
+            <size>0.05 1.80 0.4</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.9 0.9 0.9 0.2</diffuse>
+        </material>
+      </visual>
+      <collision name="top_hitbox">
+        <geometry>
+          <box>
+            <size>0.05 1.80 0.4</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="left">
+      <pose relative_to="base">0 -0.7 1.5 0 0 0</pose>
+      <visual name="left_visual">
+        <geometry>
+          <box>
+            <size>0.05 0.4 1</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.9 0.9 0.9 0.2</diffuse>
+        </material>
+      </visual>
+      <collision name="left_hitbox">
+        <geometry>
+          <box>
+            <size>0.05 0.4 1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="right">
+      <pose relative_to="base">0 0.7 1.5 0 0 0</pose>
+      <visual name="right_visual">
+        <geometry>
+          <box>
+            <size>0.05 0.4 1</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.9 0.9 0.9 0.2</diffuse>
+        </material>
+      </visual>
+      <collision name="right_hitbox">
+        <geometry>
+          <box>
+            <size>0.05 0.4 1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+
   </model>
 
   </world>
