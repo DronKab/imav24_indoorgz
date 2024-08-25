@@ -6,12 +6,12 @@
     </include>
     <include merge='true'>
       <uri>OakD-Lite</uri>
-      <pose relative_to="base_link">.10 .03 .222 0 0 0</pose>
+      <pose relative_to="base_link">.10 .03 0 0 0 0</pose>
     </include>
     <joint name="CameraJoint" type="fixed">
       <parent>base_link</parent>
       <child>OakD-Lite/base_link</child>
-      <pose relative_to="base_link">.10 .03 .222 0 0 0</pose>
+      <pose relative_to="base_link">.10 .03 0 0 0 0</pose>
     </joint>
   </model>
 </sdf> 
