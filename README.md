@@ -2,6 +2,8 @@
 
 ## Pre-requisites
 
+- ROS2 Humble installed. Steps can be found *[here](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)*.
+
 - PX4 SITL installed with Gazebo. Commands for this are : 
 
     ```sh
@@ -14,7 +16,13 @@
 
 Installation steps and more details can be found *[here](https://docs.px4.io/main/en/ros2/user_guide.html#install-px4)*
 
- - QGroundControl (optional)
+ - Gz -> ROS2 Bridge : 
+
+    ```sh
+    sudo apt install ros-humble-ros-gzgarden
+    ```
+
+ - QGroundControl (optional) :
 
     ```sh
     sudo usermod -a -G dialout $USER
