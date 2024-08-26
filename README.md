@@ -62,7 +62,7 @@ Detailed steps and more info *[here](https://docs.qgroundcontrol.com/master/en/q
     ```sh
     cd 
     cd PX4-Autopilot
-    HEADLESS=1 make px4_sitl gz_x500_depth
+    HEADLESS=1 make px4_sitl gz_x500
     ```
 
 - Connect Gazebo Topics to ROS2.
