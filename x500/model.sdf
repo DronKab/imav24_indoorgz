@@ -538,6 +538,7 @@
       <sensor name="pi_camera" type="camera">
         <pose>0 0 0 0 0 0</pose>
         <camera>
+          <camera_info_topic>pi_camera/camera_info</camera_info_topic>
           <horizontal_fov>1.74</horizontal_fov>
           <image>
             <width>640</width>
@@ -551,7 +552,7 @@
         <always_on>1</always_on>
         <update_rate>15</update_rate>
         <visualize>false</visualize>
-        <topic>pi_camera</topic>
+        <topic>pi_camera/image_raw</topic>
       </sensor>
     </link>
     
