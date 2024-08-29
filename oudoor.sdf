@@ -197,5 +197,290 @@
       <longitude_deg>-121.998878727967</longitude_deg>
       <elevation>38</elevation>
     </spherical_coordinates>
+
+    <model name="geofense">
+      <static>true</static>
+      <!-- Posición Geofense -->
+      <pose>300 25 0 0 0 0</pose>
+      <link name="geofense_link">
+        <visual name="geofense_red_wall1">
+          <pose>0 50 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>100 1 50</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 0 0 0.5</diffuse>
+          </material>
+        </visual>
+        <visual name="geofense_red_wall2">
+          <pose>0 -50 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>100 1 50</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 0 0 0.5</diffuse>
+          </material>
+        </visual>
+        <visual name="geofense_red_wall3">
+          <pose>50 0 0 0 0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>100 1 50</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 0 0 0.5</diffuse>
+          </material>
+        </visual>
+        <visual name="geofense_red_wall4">
+          <pose>-50 0 0 0 0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>100 1 50</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 0 0 0.5</diffuse>
+          </material>
+        </visual>
+    
+        <!-- Flight Area -->
+        <visual name="fa_green_wall1" relative_to="fa_red_wall1">
+          <pose>0 -40 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>80 1 50</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0 1 0 0.5</diffuse>
+          </material>
+        </visual>
+        <!-- Muro 2 -->
+        <visual name="fa_green_wall2" relative_to="fa_red_wall2">
+          <pose>0 40 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>80 1 50</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0 1 0 0.5</diffuse>
+          </material>
+        </visual>
+        <!-- Muro 3 -->
+        <visual name="fa_green_wall3" relative_to="fa_red_wall3">
+          <pose>-40 0 0 0 0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>80 1 50</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0 1 0 0.5</diffuse>
+          </material>
+        </visual>
+        <!-- Muro 4 -->
+        <visual name="fa_green_wall4" relative_to="fa_red_wall4">
+          <pose>40 0 0 0 0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>80 1 50</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0 1 0 0.5</diffuse>
+          </material>
+        </visual>
+    
+      </link>
+    </model>
+
+<!-- Cebras -->
+<model name="zebra_1">
+  <static>true</static>
+  <pose>320 5 0 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>5 10 0.1</size>
+        </box>
+      </geometry>
+      <material>
+        <diffuse>1 1 1 1</diffuse>
+        <pbr>
+          <metal>
+            <emissive_map>model://images/zebra.png</emissive_map>
+          </metal>
+        </pbr>
+      </material>
+    </visual>
+  </link>
+</model>
+
+<model name="zebra_2">
+  <static>true</static>
+  <pose>330 30 0 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>5 10 0.1</size>
+        </box>
+      </geometry>
+      <material>
+        <diffuse>1 1 1 1</diffuse>
+        <pbr>
+          <metal>
+            <emissive_map>fmodel://images/zebra.png</emissive_map>
+          </metal>
+        </pbr>
+      </material>
+    </visual>
+  </link>
+</model>
+
+<model name="zebra_3">
+  <static>true</static>
+  <pose>335 5 0 0 0 -1.5708</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>5 10 0.1</size>
+        </box>
+      </geometry>
+      <material>
+        <diffuse>1 1 1 1</diffuse>
+        <pbr>
+          <metal>
+            <emissive_map>model://images/zebra.png</emissive_map>
+          </metal>
+        </pbr>
+      </material>
+    </visual>
+  </link>
+</model>
+
+
+<model name="zebra_4">
+  <static>true</static>
+  <pose>310 45 0 0 0 1.5708</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>5 10 0.1</size>
+        </box>
+      </geometry>
+      <material>
+        <diffuse>1 1 1 1</diffuse>
+        <pbr>
+          <metal>
+            <emissive_map>model://images/zebra.png</emissive_map>
+          </metal>
+        </pbr>
+      </material>
+    </visual>
+  </link>
+</model>
+
+<model name="zebra_5">
+  <static>true</static>
+  <pose>300 27 0 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>5 10 0.1</size>
+        </box>
+      </geometry>
+      <material>
+        <diffuse>1 1 1 1</diffuse>
+        <pbr>
+          <metal>
+            <emissive_map>model://images/zebra.png</emissive_map>
+          </metal>
+        </pbr>
+      </material>
+    </visual>
+  </link>
+</model>
+
+
+<model name="zebra_6">
+  <static>true</static>
+  <pose>335 53 0 0 0 1.5708</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>5 10 0.1</size>
+        </box>
+      </geometry>
+      <material>
+        <diffuse>1 1 1 1</diffuse>
+        <pbr>
+          <metal>
+            <emissive_map>model://images/zebra.png</emissive_map>
+          </metal>
+        </pbr>
+      </material>
+    </visual>
+  </link>
+</model>
+
+<model name="zebra_7">
+  <static>true</static>
+  <pose>307 1 0 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>5 10 0.1</size>
+        </box>
+      </geometry>
+      <material>
+        <diffuse>1 1 1 1</diffuse>
+        <pbr>
+          <metal>
+            <emissive_map>model://images/zebra.png</emissive_map>
+          </metal>
+        </pbr>
+      </material>
+    </visual>
+  </link>
+</model>
+
+
+<model name="aruco_marker">
+  <static>true</static>
+  <pose>275 10 0 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <plane>
+          <normal>0 0 1</normal>
+          <size>0.15 0.15</size>
+        </plane>
+      </geometry>
+      <material>
+        <diffuse>1 1 1 1</diffuse>
+        <specular>0.4 0.4 0.4 1</specular>
+        <pbr>
+          <metal>
+            <emissive_map>model://images/5x5_1000-800.png</emissive_map>
+          </metal>
+        </pbr>
+      </material>
+    </visual>
+  </link>
+</model>
+
   </world>
 </sdf>
