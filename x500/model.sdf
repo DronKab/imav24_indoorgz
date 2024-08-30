@@ -561,6 +561,48 @@
       <child>pi_camera_link</child>
     </joint>
     <!-- Agregamos la nueva cámara -->
+    
+    
+    <!-- Agregamos la nueva cámara -->
+    <link name="camera_link">
+      <pose relative_to="base_link">0.15 0 0 0 0 0</pose>
+      <inertial>
+        <mass>0.001</mass>
+        <inertia>
+          <ixx>0.0000000001</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.0000000001</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.0000000001</izz>
+        </inertia>
+      </inertial>
+      <sensor name="camera" type="camera">
+        <pose>0 0 0 0 0 0</pose>
+        <camera>
+          <camera_info_topic>camera/camera_info</camera_info_topic>
+          <horizontal_fov>1.74</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>3000</far>
+          </clip>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>15</update_rate>
+        <visualize>false</visualize>
+        <topic>camera/image_raw</topic>
+      </sensor>
+    </link>
+    
+    <joint name="CameraJoint" type="fixed">
+      <parent>base_link</parent>
+      <child>camera_link</child>
+    </joint>
+    <!-- Agregamos la nueva cámara -->
 
    <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
       <jointName>rotor_0_joint</jointName>
